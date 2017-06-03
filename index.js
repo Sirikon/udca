@@ -1,7 +1,7 @@
 'use strict'
 
 var settings = {
-    squareSize: 1,
+    squareSize: 5,
     squareColor: '#6d6d6d',
     boardWidth: 0,
     boardHeight: 0
