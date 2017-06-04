@@ -23,6 +23,9 @@ html, body {
     top: 15px;
     left: 15px;
     z-index: 2;
+    background-color: #f3f3f3;
+    padding: 10px;
+    box-shadow: 3px 3px 0px 0px #6d6d6d;
 }
 
 #ruleNumber,
