@@ -1,6 +1,7 @@
 'use strict'
 
 var settings = {
+    randomSeed: false,
     squareSize: 5,
     squareColor: '#6d6d6d',
     boardWidth: 0,
@@ -73,10 +74,25 @@ function drawSquare(ctx, x, y) {
         settings.squareSize)
 }
 
-function seedMap() {
+function seedMapRandom() {
+    map = []
+    for(var i = 0; i < settings.boardWidth; i++) {
+        map.push([Math.round(Math.random()) === 1 ? true : false])
+    }
+}
+
+function seedMapWithCenterPoint() {
     map = []
     for(var i = 0; i < settings.boardWidth; i++) {
         map.push([i === Math.round(settings.boardWidth / 2) ? true : false])
+    }
+}
+
+function seedMap() {
+    if (settings.randomSeed) {
+        seedMapRandom()
+    } else {
+        seedMapWithCenterPoint()
     }
 }
 
@@ -123,6 +139,7 @@ function addEventListeners() {
 
 function calcButtonHandler(e) {
     e.preventDefault()
+    settings.randomSeed = document.getElementById('randomSeed').checked
     settings.squareSize = parseInt(document.getElementById('squareSize').value)
     clearCanvas()
     resizeCanvas()
